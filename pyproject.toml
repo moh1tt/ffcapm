@@ -1,0 +1,73 @@
+[build-system]
+requires      = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name            = "factorlib"
+version         = "0.1.0"
+description     = "Equity return decomposition using CAPM, Fama-French 3-Factor, and 5-Factor models"
+readme          = "README.md"
+license         = { file = "LICENSE" }
+requires-python = ">=3.9"
+
+keywords = [
+    "quantitative finance",
+    "factor models",
+    "fama-french",
+    "CAPM",
+    "equity",
+    "alpha",
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Scientific/Engineering",
+]
+
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "yfinance>=0.2",
+    "pandas-datareader>=0.10",
+    "statsmodels>=0.14",
+    "matplotlib>=3.7",
+    "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "black",
+    "ruff",
+    "mypy",
+]
+
+[project.urls]
+Homepage      = "https://github.com/yourusername/factorlib"
+Documentation = "https://github.com/yourusername/factorlib#readme"
+Repository    = "https://github.com/yourusername/factorlib"
+"Bug Tracker" = "https://github.com/yourusername/factorlib/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["factorlib"]
+
+[tool.ruff]
+line-length = 100
+select      = ["E", "F", "I"]
+
+[tool.black]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths    = ["tests"]
+addopts      = "-v --tb=short"
